@@ -13,7 +13,7 @@ class HomeController extends Controller
 
     function admin()
     {
-        return view('layouts/admin_view/home');
+        return view('layouts/admin_view/app');
     }
     function test()
     {

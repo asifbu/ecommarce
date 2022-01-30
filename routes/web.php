@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\admin\CategoryController;
+use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\HomeController;
+use App\Http\Middleware\OnlyAdmin;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +17,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
 Route::get('/', function () {
-    return view('welcome');
-});
+        return view('layouts.client_view.home');
+    });
+    
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -24,6 +32,18 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
+
+Route::prefix('admin')->middleware(['auth',OnlyAdmin::class])->group(function(){
+
+    Route::get('/dashboard',[HomeController::class,'admin']);
+    Route::get('/categories',[CategoryController::class,'index']);
+    Route::post('/categories/store',[CategoryController::class,'store']);
+
+    Route::get('/product',[ProductController::class,'index']);
+    Route::post('/product/store',[ProductController::class,'store']);
+
+});
+
 Route::get('/home',[HomeController::class,'index']);
-Route::get('/admin',[HomeController::class,'admin']);
-Route::get('/test',[HomeController::class,'test']);
+
+Route::post('/test',[HomeController::class,'test']);

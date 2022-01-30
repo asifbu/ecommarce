@@ -77,15 +77,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</form>
 		</div>
 		<div class="col-md-3 header-right footer-bottom">
-			<ul>
-				<li><a href="#" class="use1" data-toggle="modal" data-target="#myModal4"><span>Login</span></a>
-					
-				</li>
-				<li><a class="fb" href="#"></a></li>
-				<li><a class="twi" href="#"></a></li>
-				<li><a class="insta" href="#"></a></li>
-				<li><a class="you" href="#"></a></li>
-			</ul>
+			
+			@if(Auth::User())
+				
+					<h3 type="button" class="btn btn-danger">{{Auth::User()->name}}</h3>
+					<form method="POST" action="{{ route('logout') }}">
+						@csrf
+						<button type="submit" class="btn btn-danger">Logout</button>
+					</form>
+				
+				@else
+					<a class="btn btn-success" href="{{ route('login') }}" >Log in</a>
+				@endif
 		</div>
 		<div class="clearfix"></div>
 	</div>
