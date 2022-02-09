@@ -181,6 +181,8 @@
     <!-- Content Header (Page header) -->
    @yield('header')
 
+   @include('flash::message')
+
     <!-- Main content -->
     <section class="content">
 
@@ -219,5 +221,8 @@
 <script src="{{asset('./admin_view/dist/js/adminlte.min.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('./admin_view/dist/js/demo.js')}}"></script>
+<script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+@yield('script')
 </body>
 </html>

@@ -31,7 +31,7 @@
           </div>
           <!-- /.card-header -->
           <!-- form start -->
-          <form action="{{url('/admin/product/store')}}" method="POST">
+          <form action="{{url('/admin/product/store')}}" enctype="multipart/form-data" method="POST">
             @csrf
             <div class="card-body">
 
@@ -70,17 +70,19 @@
                 <label for="exampleInputEmail1"> Sub Category</label>
                 {{-- <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Main Category"> --}}
                 <select name="category_id" class="form-control">
-                  <option value="">-------  select Product Type  ------</option>
-                  @foreach ($sub_category as $key =>$category)
-                  <option value="{{$category->id}}">{{$category->id}}</option>
+                  <option value="">-------  select category  ------</option>
+                  @foreach ($sub_category as $category)
+                  <option value="{{$category->id}}">{{$category->name}}</option>
                   @endforeach
                 </select>
               </div>
 
               <div class="form-group">
-                <label for="exampleInputPassword1">Sub Category</label>
-                <input type="text" class="form-control" id="exampleInputPassword1" name="sub_category" value="{{old('sub_category')}}" placeholder="Enter Sub Category">
+                <label for="exampleFormControlFile1">Enter Product Image</label>
+                <input type="file" name="main_image" class="form-control-file" id="exampleFormControlFile1">
               </div>
+
+        
             </div>
             <!-- /.card-body -->
 
@@ -108,7 +110,7 @@
                   <th style="width: 10px">#</th>
                   <th>Sub Category</th>
                   <th>Main Category</th>
-                  <th>Update</th>
+                  <th> Update </th>
                   <th >Delete</th>
                 </tr>
               </thead>
@@ -118,8 +120,12 @@
                   <td>{{$product->id}}</td>
                   <td>{{$product->name}}</td>
                   {{-- <td>{{App\Enums\ProductType::getDescription($product->main_category_id)}}</td> --}}
-                  <td><a class="btn btn-primary">Update</a></td>
-                  <td><a class="btn btn-primary">Delete</a></td>
+                  <td><a class="btn btn-primary" href="{{url("admin/product/edit/$product->id")}}">Update</a></td>
+                  {{-- <td><a class="btn btn-primary" href="{{url("admin/product/delete/$product->id")}}">Delete</a></td> --}}
+                  <form action="{{url("admin/product/delete/$product->id")}}" method="POST">
+                    @csrf
+                  <td> <button type="submit" class="btn btn-primary">Delete</button></td>
+                  </form>
                 </tr>
                 @endforeach
               </tbody>

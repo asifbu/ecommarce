@@ -85,8 +85,14 @@
                   <td>{{$category->id}}</td>
                   <td>{{$category->name}}</td>
                   <td>{{App\Enums\MainCategory::getDescription($category->main_category_id)}}</td>
-                  <td><a class="btn btn-primary" >Update</a></td>
-                  <td><a class="btn btn-primary">Delete</a></td>
+                  <td><a class="btn btn-primary" href="{{url("/admin/categories/$category->id/edit")}}" >Update</a></td>
+                  {{-- <td><a class="btn btn-primary quer" >Update</a></td> --}}
+                  <td>
+                    <form action="{{url("/admin/categories/$category->id/delete")}}" method="POST">
+                      @csrf
+                    <button type="submit" class="btn btn-primary">Delete</button>
+                    </form>
+                  </td>
                 </tr>
                 @endforeach
               </tbody>
@@ -98,6 +104,21 @@
 
     </div>
   </div>
-</section>
+</section>  
+@endsection
+
+@section('script')
+
+<script>
+$(document).ready(function () {
+  
+
+$(document).on("click",".quer", function (e) {
+  e.preventDefault();
+  console.log("hello");
+
+});
+});
+</script>
     
 @endsection

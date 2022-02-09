@@ -4,20 +4,35 @@ namespace App\Http\Controllers\admin;
 
 use App\Enums\MainCategory;
 use App\Http\Controllers\Controller;
+use App\Interfaces\ICategoryRepository;
 use App\Models\Category;
+use Error;
 use Illuminate\Http\Request;
+use PhpParser\Node\Stmt\TryCatch;
+use Throwable;
 
 class CategoryController extends Controller
 {
+    protected $categoryRepo;
+
+    public function __construct(ICategoryRepository $categoryRepo)
+    {
+        $this->categoryRepo = $categoryRepo;
+    }
+
+
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+    
     public function index()
     {
         $data["main_category"] = MainCategory::asSelectArray();
-        $data["sub_category"] = Category::get();
+        $data["sub_category"] = $this->categoryRepo->myGet();
+       // $data["sub_category"] = Category::get();
         return view('layouts/admin_view/home',$data);
     }
 
@@ -39,10 +54,9 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $category = new Category();
-        $category->main_category_id = $request->main_category;
-        $category->name = $request->sub_category;
-        $category->save();
+        // $category = new Category();
+        $category = $this->categoryRepo->myStore($request);
+        flash('Successfully store')->success();
         return redirect('/admin/categories');
     }
 
@@ -65,7 +79,10 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        // $data['category_edit'] = Category::find($id);
+        $data['category_edit'] = $this->categoryRepo->myFind($id);
+        $data['main_category'] = MainCategory::asSelectArray();
+        return view('layouts/admin_view/category_edit',$data);
     }
 
     /**
@@ -77,7 +94,12 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // $category = Category::find($id);
+        // $category->main_category_id = $request->main_category;
+        // $category->name = $request->sub_category;
+        // $category->save();
+        $this->categoryRepo->myUpdate($request,$id);
+        return redirect('/admin/categories');
     }
 
     /**
@@ -88,6 +110,10 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        $this->categoryRepo->myDelete($id);
+        flash('Deleted')->warning();
+        return redirect('/admin/categories');
+
     }
 }
