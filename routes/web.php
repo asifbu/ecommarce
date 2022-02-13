@@ -21,9 +21,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', function () {
-        return view('layouts.client_view.home');
-    });
+Route::get('/',[HomeController::class,'index']);
     
 
 Route::get('/dashboard', function () {

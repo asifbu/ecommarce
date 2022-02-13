@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     function index()
     {
-        return view('layouts/client_view/home');
+        $data['latests'] = Product::get();
+        return view('layouts/client_view/home',$data);
     }
 
     function admin()

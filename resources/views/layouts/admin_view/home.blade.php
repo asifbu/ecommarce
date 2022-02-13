@@ -117,6 +117,7 @@ $(document).on("click",".quer", function (e) {
   e.preventDefault();
   console.log("hello");
 
+
 });
 });
 </script>
