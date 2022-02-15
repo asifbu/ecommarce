@@ -52,4 +52,9 @@ Route::prefix('/admin')->middleware(['auth',OnlyAdmin::class])->group(function()
 Route::get('/home',[HomeController::class,'index']);
 
 Route::post('/test',[HomeController::class,'test']);
-Route::get('/cart/{id}',[CartController::class,'add_product']);
+Route::get('/cart/{id}',[CartController::class,'add_product']); 
+
+Route::get('/new', function() {
+    return view('layouts/client_view/app');
+});
+
