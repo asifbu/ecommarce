@@ -405,7 +405,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<span class="item_price">{{$item->price}}</span>
 										<del>$6</del>
 									</div>
-									<a href="#" class="item_add single-item hvr-outline-out button2">Add to cart</a>									
+									<a href="{{url("/cart/$item->id")}}" class="item_add single-item hvr-outline-out button2">Add to cart</a>									
 								</div>
 							</div>
 						</div>

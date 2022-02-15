@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\ProductController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Middleware\OnlyAdmin;
 use Illuminate\Support\Facades\Route;
@@ -51,3 +52,4 @@ Route::prefix('/admin')->middleware(['auth',OnlyAdmin::class])->group(function()
 Route::get('/home',[HomeController::class,'index']);
 
 Route::post('/test',[HomeController::class,'test']);
+Route::get('/cart/{id}',[CartController::class,'add_product']);
