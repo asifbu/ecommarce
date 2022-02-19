@@ -1441,7 +1441,7 @@ textarea:focus {
 	
 }
 .header-fixed{
-	position: fixed; /* Set the navbar to fixed position */
+	position: absolute; /* Set the navbar to fixed position */
 	top: 0;
 	overflow: hidden;
   	background-color: #ffffff;
@@ -1568,7 +1568,7 @@ textarea:focus {
 }
 .cart-item-count {
 		position: absolute;
-		top: -25px;
+		top: -15px;
 		left: -60px;
 		display: block;
 		overflow: hidden;
@@ -1947,7 +1947,7 @@ textarea:focus {
 	left: 0;
 	position: fixed;
 	right: 0;
-	margin-top: 90px;
+	margin-top: 0px;
 	top: 0;
 	-webkit-transition: all 300ms ease-in 0s;
 	transition: all 300ms ease-in 0s;

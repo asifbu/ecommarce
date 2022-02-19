@@ -108,11 +108,8 @@
                         <!-- Header Middle Wishlist Area End Here -->
                         <!-- Begin Header Mini Cart Area -->
                         <li class="hm-minicart">
-                            <div class="hm-minicart-trigger">
-                                <span class="item-icon"></span>
-                                <span class="item-text">£80.00
-                                    <span class="cart-item-count">2</span>
-                                </span>
+                            <div class="hm-minicart-trigger" id="read">
+                                {{-- --------------show cart------------- --}}
                             </div>
                             <span></span>
                             <div class="minicart">

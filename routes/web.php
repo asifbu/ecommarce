@@ -53,8 +53,17 @@ Route::get('/home',[HomeController::class,'index']);
 
 Route::post('/test',[HomeController::class,'test']);
 Route::get('/cart/{id}',[CartController::class,'add_product']); 
+Route::get('/checkout',[CartController::class,'checkout']); 
+Route::get('/read',[CartController::class,'read']); 
 
 Route::get('/new', function() {
     return view('layouts/client_view/app');
+});
+
+Route::get('/main', function() {
+    return view('layouts/client_view/main_page');
+});
+Route::get('/single_product', function() {
+    return view('layouts/client_view/single_product');
 });
 

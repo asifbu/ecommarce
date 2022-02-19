@@ -42,6 +42,8 @@
         <link rel="stylesheet" href="{{asset('./client_view/css/responsive.css')}}">
         <!-- Modernizr js -->
         <script src="{{asset('./client_view/js/vendor/modernizr-2.8.3.min.js')}}"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body>
     <!--[if lt IE 8]>
@@ -137,33 +139,11 @@
             <!-- Begin Slider With Category Menu Area -->
            
 
+            {{-- take this part in main page --}}
 
-            @include('layouts.client_view.hero')
+            @yield('main_page')
 
-            <!-- Slider With Category Menu Area End Here -->
-            <!-- Begin Li's Static Banner Area -->
-            @include('layouts.client_view.add1')
-            <!-- Li's Static Banner Area End Here -->
-            <!-- Begin Li's Special Product Area -->
-           @include('layouts/client_view/hot_deal')
-            <!-- Li's Special Product Area End Here -->
-            <!-- Begin Featured Product With Banner Area -->
-            @include('layouts/client_view/feature_products')
-            <!-- Featured Product With Banner Area End Here -->
-            <!-- Begin Li's Laptop Product Area -->
-            @include('layouts/client_view/product_display1')
-
-            @include('layouts/client_view/product_display')
-            <!-- Li's Laptop Product Area End Here -->
-            <!-- Begin Li's TV & Audio Product Area -->
-            @include('layouts/client_view/product_display2')
-            <!-- Li's TV & Audio Product Area End Here -->
-            <!-- Begin Li's Static Banner Area -->
-            @include('layouts/client_view/add2')
-            <!-- Li's Static Banner Area End Here -->
-            <!-- Begin Li's Trending Product Area -->
-            @include('layouts/client_view/product_display3')
-            <!-- Li's Trending Product Area End Here -->
+          
             <!-- Begin Footer Area -->
             @include('layouts/client_view/footer')
             <!-- Footer Area End Here -->
@@ -281,6 +261,38 @@
             <!-- Quick View | Modal Area End Here -->
         </div>
         <!-- Body Wrapper End Here -->
+
+        <script>
+
+        $(document).ready(function(){
+            // $("#setOk").click(function(){
+            //     alert("Text: " + $("#test").text());
+            // });
+           read()
+          });
+
+
+          function addCart() {
+           // var name = $("#name").val();
+            $.ajax({
+                type: "get",
+                url: "{{ url('/cart/4') }}",
+                // data: "name=" + name,
+                success: function(data) {
+                    // $(".btn-close").click();
+                    read()
+                }
+            });
+        }
+
+        // Read Database
+        function read() {
+            $.get("{{ url('read') }}", {}, function(data, status) {
+                $("#read").html(data);
+            });
+        }
+
+</script>
         <!-- jQuery-V1.12.4 -->
         <script src="{{asset('./client_view/js/vendor/jquery-1.12.4.min.js')}}"></script>
         <!-- Popper js -->

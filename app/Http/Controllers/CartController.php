@@ -18,7 +18,27 @@ class CartController extends Controller
 
         ));
 
-        dd(\Cart::getContent());
-        return redirect('/');
+     
+       // return redirect('/');
+    }
+
+    public function checkout()
+    {
+
+    //     $cartCollection = \Cart::getContent();   
+    //    dd($cartCollection->count()) ;
+       
+       dd(\Cart::getContent());
+    }
+
+    public function read()
+    {
+        $cartCollection = \Cart::getContent(); 
+        $data['count']=$cartCollection->count();
+        return view('layouts/client_view/show_cart_item',$data);
+
+        // return view('read')->with([
+        //     'data' => $data
+        // ]);
     }
 }

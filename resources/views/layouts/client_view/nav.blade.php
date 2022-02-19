@@ -121,8 +121,19 @@
                                             <li><a href="about-us.html">About Us</a></li>
                                             <li><a href="contact.html">Contact</a></li>
                                             <!-- Begin Header Bottom Menu Information Area -->
-                                            <li class="hb-info f-right p-0 d-sm-none d-lg-block">
-                                                <span>6688 London, Greater London BAS 23JK, UK</span>
+                                            {{-- <li class="hb-info f-right p-0 d-sm-none d-lg-block">
+                                                {{-- <span>6688 London, Greater London BAS 23JK, UK</span> 
+                                               
+                                            </li> --}}
+                                            <li class="hm-minicart  f-right p-0 d-sm-none d-lg-block">
+                                                <div class="hm-minicart-trigger" id="read">
+                                                    {{-- --------------show cart------------- --}}
+                                                    <span class="item-icon"></span>
+                                                        <span class="item-text">£80.00
+                                                            <span class="cart-item-count" >1</span>
+                                                        </span>
+                                                </div>
+                                                <span></span>
                                             </li>
                                             <!-- Header Bottom Menu Information Area End Here -->
                                         </ul>
