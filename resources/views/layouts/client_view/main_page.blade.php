@@ -17,6 +17,7 @@
 @include('layouts/client_view/product_display1')
 
 @include('layouts/client_view/product_display')
+@include('layouts/client_view/shop_contant')
 <!-- Li's Laptop Product Area End Here -->
 <!-- Begin Li's TV & Audio Product Area -->
 @include('layouts/client_view/product_display2')

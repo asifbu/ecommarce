@@ -288,7 +288,7 @@
         // Read Database
         function read() {
             $.get("{{ url('read') }}", {}, function(data, status) {
-                $("#read").html(data);
+                $(".read").html(data);
             });
         }
 

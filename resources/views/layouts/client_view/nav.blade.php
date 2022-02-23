@@ -126,12 +126,12 @@
                                                
                                             </li> --}}
                                             <li class="hm-minicart  f-right p-0 d-sm-none d-lg-block">
-                                                <div class="hm-minicart-trigger" id="read">
+                                                <div class="read for-nav-cart">
                                                     {{-- --------------show cart------------- --}}
-                                                    <span class="item-icon"></span>
+                                                    {{-- <span class="item-icon"></span>
                                                         <span class="item-text">£80.00
                                                             <span class="cart-item-count" >1</span>
-                                                        </span>
+                                                        </span> --}}
                                                 </div>
                                                 <span></span>
                                             </li>

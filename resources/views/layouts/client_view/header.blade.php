@@ -108,7 +108,7 @@
                         <!-- Header Middle Wishlist Area End Here -->
                         <!-- Begin Header Mini Cart Area -->
                         <li class="hm-minicart">
-                            <div class="hm-minicart-trigger" id="read">
+                            <div class="hm-minicart-trigger read">
                                 {{-- --------------show cart------------- --}}
                             </div>
                             <span></span>

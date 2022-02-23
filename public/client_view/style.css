@@ -1541,7 +1541,19 @@ textarea:focus {
 		cursor: pointer;
 		display: block;
 		position: relative;
-		padding: 0 15px 0 55px;
+		padding: 0 15px 0 55px;	
+}
+
+.for-nav-cart{
+	border-radius: 2px;
+		background: #e80f0f;
+		color: #fff;
+		height: 45px;
+		cursor: pointer;
+		display: block;
+		position: relative;
+		padding: 0 15px 0 55px;	
+		margin-top: 10px;
 }
 .item-icon::before {
 		content: "\f291";
@@ -1568,7 +1580,7 @@ textarea:focus {
 }
 .cart-item-count {
 		position: absolute;
-		top: -15px;
+		top: -25px;
 		left: -60px;
 		display: block;
 		overflow: hidden;
@@ -1797,7 +1809,7 @@ textarea:focus {
 }
 .ht-menu > li .ht-currency-trigger span::after,
 .ht-menu > li .ht-language-trigger span::after,
-.hm-minicart-trigger .item-text::after {
+.hm-minicart-trigger .for-nav-cart .item-text::after {
 	content: "\f106";
 	float: right;
 	font-weight: 400;
@@ -1815,20 +1827,20 @@ textarea:focus {
 .ht-menu > li .ht-setting-trigger span::after, 
 .ht-menu > li .ht-currency-trigger span::after, 
 .ht-menu > li .ht-language-trigger span::after, 
-.hm-minicart-trigger .item-text::after {
+.hm-minicart-trigger .for-nav-cart .item-text::after {
 	content: "\f107";
 	font-size: 14px;
 	color: #a4a4a4;
 	margin-left: 5px;
 	font-family: fontawesome;
 }
-.hm-minicart-trigger .item-text::after {
+.hm-minicart-trigger .for-nav-cart .item-text::after {
 	color: #fff;
 } 
 .ht-menu > li .ht-setting-trigger.is-active span::after, 
 .ht-menu > li .ht-currency-trigger.is-active span::after, 
 .ht-menu > li .ht-language-trigger.is-active span::after,
-.hm-minicart-trigger.is-active .item-text::after {
+.hm-minicart-trigger .for-nav-cart .is-active .item-text::after {
 	transform: rotate(-180deg);
 }
 .megamenu {
