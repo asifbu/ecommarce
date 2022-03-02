@@ -58,6 +58,25 @@
             </div>
           </div>
         </div>
+
+        <div class="input-group mb-3">
+          <input type="number" class="form-control" name="mobile" placeholder=" mobile" required>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-check form-check-inline mb-3">
+          <input class="form-check-input" type="radio" name="type" id="inlineRadio1" value="customer">
+          <label class="form-check-label" for="inlineRadio1">Customer</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="type" id="inlineRadio2" value="seller">
+          <label class="form-check-label" for="inlineRadio2">Seller</label>
+        </div>
+
         <div class="row">
           <div class="col-8">
             <div class="icheck-primary">
@@ -88,6 +107,17 @@
       </div>
 
       <a href="login.html" class="text-center">I already have a membership</a>
+
+      @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
     </div>
     <!-- /.form-box -->
   </div><!-- /.card -->

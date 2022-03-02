@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\ProductController;
+use App\Http\Controllers\ApproveProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Middleware\OnlyAdmin;
@@ -46,6 +47,8 @@ Route::prefix('/admin')->middleware(['auth',OnlyAdmin::class])->group(function()
     Route::get('/product/edit/{id}',[ProductController::class,'edit']);
     Route::put('/product/{id}/update',[ProductController::class,'update']);
     Route::post('/product/delete/{id}',[ProductController::class,'destroy']);
+
+    Route::get('/approve/product',[ApproveProductController::class,'index']);
            
 });
 
