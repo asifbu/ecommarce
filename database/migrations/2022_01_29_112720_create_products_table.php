@@ -23,6 +23,7 @@ class CreateProductsTable extends Migration
             $table->double('stock');
             $table->text('description');
             $table->foreignId('category_id')->constrained();
+            $table->string('status')->default('pending');
             $table->timestamps();
         });
     }

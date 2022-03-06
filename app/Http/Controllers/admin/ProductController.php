@@ -121,4 +121,29 @@ class ProductController extends Controller
 
         return redirect('/admin/product');
     }
+
+    public function status()
+    {
+        $data["product_type"] = ProductType::asSelectArray();
+        $data["products"] = Product::get();
+        $data["sub_category"] = Category::get();
+        return view('layouts/admin_view/approve_product',$data);
+    }
+
+    public function statusEdit($id)
+    {
+        $data["product"] = Product::find($id);
+        $data["product_type"] = ProductType::asSelectArray();
+        $data["sub_category"] = Category::get();
+        return view('layouts/admin_view/approved_edit',$data);
+
+    }
+
+    public function statusUpdate(Request $request, $id)
+    {
+        $product_update = Product::find($id);
+        $product_update->status = $request->product_status;
+        $product_update->save();
+        return redirect('/admin/status/product');
+    }
 }

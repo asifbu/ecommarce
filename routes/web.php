@@ -48,6 +48,10 @@ Route::prefix('/admin')->middleware(['auth',OnlyAdmin::class])->group(function()
     Route::put('/product/{id}/update',[ProductController::class,'update']);
     Route::post('/product/delete/{id}',[ProductController::class,'destroy']);
 
+    Route::get('/status/product',[ProductController::class,'status']);
+    Route::get('/status/product/edit/{id}',[ProductController::class,'statusEdit']);
+    Route::put('/status/product/{id}/update',[ProductController::class,'statusUpdate']);
+
     Route::get('/approve/product',[ApproveProductController::class,'index']);
            
 });

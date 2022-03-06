@@ -17,7 +17,7 @@ class OnlyAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth::User()->is_admin)
+        if(Auth::User()->is_admin || Auth::User()->type == 'seller')
         {
             return $next($request);
         } else
