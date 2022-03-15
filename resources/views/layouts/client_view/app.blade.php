@@ -262,37 +262,7 @@
         </div>
         <!-- Body Wrapper End Here -->
 
-        <script>
-
-        $(document).ready(function(){
-            // $("#setOk").click(function(){
-            //     alert("Text: " + $("#test").text());
-            // });
-           read()
-          });
-
-
-          function addCart() {
-           // var name = $("#name").val();
-            $.ajax({
-                type: "get",
-                url: "{{ url('/cart/4') }}",
-                // data: "name=" + name,
-                success: function(data) {
-                    // $(".btn-close").click();
-                    read()
-                }
-            });
-        }
-
-        // Read Database
-        function read() {
-            $.get("{{ url('read') }}", {}, function(data, status) {
-                $(".read").html(data);
-            });
-        }
-
-</script>
+       
         <!-- jQuery-V1.12.4 -->
         <script src="{{asset('./client_view/js/vendor/jquery-1.12.4.min.js')}}"></script>
         <!-- Popper js -->
@@ -335,6 +305,38 @@
         <script src="{{asset('./client_view/js/scrollUp.min.js')}}"></script>
         <!-- Main/Activator js -->
         <script src="{{asset('./client_view/js/main.js')}}"></script>
+
+        <script>
+
+            $(document).ready(function(){
+                // $("#setOk").click(function(){
+                //     alert("Text: " + $("#test").text());
+                // });
+               read()
+              });
+    
+    
+              function addCart(id) {
+               // var name = $("#name").val(); 
+                $.ajax({
+                    type: "get",
+                    url: "{{ url('cart') }}/" + id,
+                    // data: "name=" + name,
+                    success: function(data) {
+                        // $(".btn-close").click();
+                        read()
+                    }
+                });
+            }
+    
+            // Read Database
+            function read() {
+                $.get("{{ url('read') }}", {}, function(data, status) {
+                    $(".read").html(data);
+                });
+            }
+    
+    </script>
     </body>
 
 <!-- index-331:41-->

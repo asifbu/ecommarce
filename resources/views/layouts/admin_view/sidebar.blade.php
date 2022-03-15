@@ -23,5 +23,12 @@
               <p>Products</p>
             </a>
           </li>
+
+          <li class="nav-item">
+            <a href="{{url('/admin/display/product')}}" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>Display Products</p>
+            </a>
+          </li>
     </ul>
   </nav>

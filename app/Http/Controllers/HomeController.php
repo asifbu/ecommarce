@@ -13,6 +13,12 @@ class HomeController extends Controller
         return view('layouts/client_view/home',$data);
     }
 
+    function main_index()
+    {
+        $data['latests'] = Product::get();
+        return view('layouts/client_view/main_page',$data);
+    }
+
     function admin()
     {
         return view('layouts/admin_view/app');

@@ -28,7 +28,17 @@ class CartController extends Controller
     //     $cartCollection = \Cart::getContent();   
     //    dd($cartCollection->count()) ;
        
-       dd(\Cart::getContent());
+      // dd(\Cart::getContent());
+      $data['items'] = \Cart::getContent();
+       return view('layouts/client_view/cart',$data);
+    }
+
+    public function remove($id)
+    {
+
+        \Cart::remove($id);
+        $data['items'] = \Cart::getContent();
+        return view('layouts/client_view/cart',$data);
     }
 
     public function read()

@@ -18,7 +18,8 @@ class ProductController extends Controller
     public function index()
     {
         $data["product_type"] = ProductType::asSelectArray();
-        $data["products"] = Product::get();
+        $data["products"] = Product::where('status','=','approved')->get();
+       /// Product::get();
         $data["sub_category"] = Category::get();
         return view('layouts/admin_view/product',$data);
     }
@@ -145,5 +146,13 @@ class ProductController extends Controller
         $product_update->status = $request->product_status;
         $product_update->save();
         return redirect('/admin/status/product');
+    }
+
+    public function display_product()
+    {
+        $data["product_type"] = ProductType::asSelectArray();
+        $data["products"] = Product::where('status','=','approved')->get();
+        $data["sub_category"] = Category::get();
+        return view('layouts/admin_view/display_product',$data);
     }
 }
